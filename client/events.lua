@@ -66,6 +66,8 @@ end)
 
 ---@param coords vector3
 RegisterNetEvent('QBCore:Command:TeleportToPlayer', function(coords)
+    if GetInvokingResource() then return end
+
     SetPedCoordsKeepVehicle(cache.ped, coords.x, coords.y, coords.z)
 end)
 
@@ -74,6 +76,8 @@ end)
 ---@param z number
 ---@param h number
 RegisterNetEvent('QBCore:Command:TeleportToCoords', function(x, y, z, h)
+    if GetInvokingResource() then return end
+    
     SetPedCoordsKeepVehicle(cache.ped, x, y, z)
     SetEntityHeading(cache.ped, h or GetEntityHeading(cache.ped))
 end)
